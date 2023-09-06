@@ -6,6 +6,8 @@ public class car {
     private String carKind;
     private int carMade;
 
+    public static car example = car.getAll(10000, 10000, "test", 1997);
+
     public int getCarNum() {
         return this.carNum;
     }
@@ -42,8 +44,28 @@ public class car {
 
     public static car numOnly(int carNum){
         car instance = new car();
-        instance.carNum = carNum;
+        instance.setCarNum(carNum);
         return instance;
     }
+
+    public static car getAll(int carNum, int carPrice, String carKind, int carMade){
+        car instance = new car();
+        instance.setCarNum(carNum);
+        instance.setCarPrice(carPrice);
+        instance.setCarKind(carKind);
+        instance.setCarMade(carMade);
+        return instance;
+    }
+
+    public static car getExample(){
+        return example;
+    }
+
+    public static car getTruck(){
+        truck truck = new truck();
+        truck.setCarKind("truck");
+        return truck;
+    }
+
     
 }
