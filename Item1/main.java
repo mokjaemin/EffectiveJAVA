@@ -1,9 +1,8 @@
 package Item1;
 
+// Item1. 생성자보다 정적 팩터리 메서드를 고려하자.
 public class main {
     public static void main(String[] args) {
-
-        // Item1. 생성자보다 정적 팩터리 메서드를 고려하자.
 
         // Static을 활용하여 인스턴스를 제공하는 Boolean 클래스
         // 미리 인스턴스를 만들어 반환하는 구조

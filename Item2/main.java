@@ -1,5 +1,7 @@
 package Item2;
 
+
+// Item2. 생성자에 매개변수가 많다면 빌더를 고려하라.
 public class main {
     public static void main(String[] args) {
 
