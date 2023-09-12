@@ -39,7 +39,7 @@ public class main {
         Boolean value3 = Boolean.valueOf("true");
         Boolean value4 = Boolean.valueOf("true");
         System.out.println(System.identityHashCode(value3));
-        System.out.println(System.identityHashCode(value4));
+        // System.out.println(System.identityHashCode(value4));
 
         // 4. 불변객체가 아닌 가변 객체라 하더라도 사용중에 변경되지 않을 것이라는 것을 안다면 재사용 가능하다.
         // - 생성비용이 굉장히 비싼 객체도 존재하는데 이러한 객체가 반복적으로 필요한 경우에는 캐싱해서 재사용하는 것이 권장됨.
