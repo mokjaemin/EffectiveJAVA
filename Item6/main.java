@@ -39,7 +39,7 @@ public class main {
         Boolean value3 = Boolean.valueOf("true");
         Boolean value4 = Boolean.valueOf("true");
         System.out.println(System.identityHashCode(value3));
-        // System.out.println(System.identityHashCode(value4));
+        System.out.println(System.identityHashCode(value4));
 
         // 4. 불변객체가 아닌 가변 객체라 하더라도 사용중에 변경되지 않을 것이라는 것을 안다면 재사용 가능하다.
         // - 생성비용이 굉장히 비싼 객체도 존재하는데 이러한 객체가 반복적으로 필요한 경우에는 캐싱해서 재사용하는 것이 권장됨.
@@ -108,20 +108,28 @@ public class main {
         // 차이 비교
         // 1번
         Long sum1 = 0L;
+        long now1 = System.currentTimeMillis();
         for(long i=0; i<=Integer.MAX_VALUE; i++){
             sum1 += i;
         }
+        long finish1 = System.currentTimeMillis();
         System.out.println(sum1);
+        System.out.print("1번 걸린시간 : ");
+        System.out.println(finish1 - now1);
         // 1번의 경우 Long 타입인 sum1에 long i를 더할때마다 새로운 Long 인스턴스가 생성됨
         // String에 +와 같은 개념, Long도 마찬가지로 불변 클래스이다.
         // 따라서 엄청난 Long 타입의 인스턴스가 새로 생성되기 때문에 해당 코드는 시간이 오래 걸린다.
 
         // 2번
         long sum2 = 0L;
+        long now2 = System.currentTimeMillis();
         for(long i=0; i<=Integer.MAX_VALUE; i++){
             sum2 += i;
         }
+        long finish2 = System.currentTimeMillis();
         System.out.println(sum2);
+        System.out.print("2번 걸린시간 : ");
+        System.out.println(finish2 - now2);
         
         // 2번이 훨씬 빠름을 알 수 있음
 
