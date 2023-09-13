@@ -135,7 +135,7 @@ public class main {
         cleanerTest sample4 = new cleanerTest(0, countDownLatch3);
         sample4.close();
 
-        // 2. try사용시 자동제거 필요가 없어짐
+        // 2. try-with-resources 사용시 자동제거 필요가 없어짐
         try(cleanerTest sample5 = new cleanerTest(0, countDownLatch3)){
             System.out.println("sample 5 청소");
         }
