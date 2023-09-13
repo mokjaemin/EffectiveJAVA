@@ -75,6 +75,36 @@ public class main {
 
         // (엔트리 : 키-값 구조)
 
+
+        // HashMap을 사용하는 경우
+
+        HashMap<Integer, String> map1 = new HashMap<>();
+
+        Integer key3 = 1000;
+        Integer key4 = 2000;
+
+        map1.put(key3, "객체 1");
+        map1.put(key4, "객체 2");
+
+        key4 = null;
+
+        System.out.println("HashMap 삭제 전 ->");
+        for(Integer key : map1.keySet()){
+            System.out.println(map1.get(key));
+        }
+
+        System.gc(); // 강제 Garbage Collection
+        // 추가적으로 Integer 같은 경우, 특정범위 (약 : 128) 까지는 캐싱처리 되어서
+        // 삭제가 안됨.
+        
+        System.out.println("HashMap 삭제 후 ->");
+        for(Integer key : map1.keySet()){
+            System.out.println(map1.get(key));
+        }
+
+
+
+        // WeakHashMap을 사용하는경우
         WeakHashMap<Integer, String> map = new WeakHashMap<>();
 
         Integer key1 = 1000;
@@ -85,7 +115,7 @@ public class main {
 
         key1 = null;
 
-        System.out.println("삭제 전 ->");
+        System.out.println("WeakHashMap 삭제 전 ->");
         for(Integer key : map.keySet()){
             System.out.println(map.get(key));
         }
@@ -94,7 +124,7 @@ public class main {
         // 추가적으로 Integer 같은 경우, 특정범위 (약 : 128) 까지는 캐싱처리 되어서
         // 삭제가 안됨.
         
-        System.out.println("삭제 후 ->");
+        System.out.println("WeakHashMap 삭제 후 ->");
         for(Integer key : map.keySet()){
             System.out.println(map.get(key));
         }
@@ -105,6 +135,7 @@ public class main {
         // -> 백그라운드 스레드를 활용하거나 캐시에 새 엔트리를 추가할 때, 부수작업으로 수행하는 방법 존재
         // -> LinkedHashMap은 removeEldestEntry 메서드를 써서 부수작업으로 수행하는 방법을 사용한다.
         // -> 복잡한 캐시를 만들고 싶다면 java.lang.ref 패키지 활용
+
 
         // 메모리 누수 3. 메모리 누수의 세번째 주범은 리스너와 콜백
         // -> 클라이언트는 콜백을 등록만하고 명확히 해지하지 않는다.
