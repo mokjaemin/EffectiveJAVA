@@ -1,11 +1,12 @@
 package Item10;
 
 import java.util.*;
+import java.net.URL;
 
 // 3장 : 모든 객체의 공통 메서드
 // Item10 : equals는 일반 규약을 지켜 재정의하라.
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
 
         // 3장
         // - Object의 final이 아닌 메서드(equals, hashcode, toString, clone. finalize)는 모두 재정의를
@@ -136,16 +137,65 @@ public class Main {
         System.out.println(newP2.equals(newP3));
         System.out.println(newP3.equals(newP4));
         System.out.println(newP2.equals(newP4));
+        System.out.println("상위 클래스와 비교");
+        System.out.println(newP2.asPoint().equals(newP1));
+        System.out.println(newP1.equals(newP2.asPoint()));
 
 
         // 61p부터 시작
 
         // 3-4. 일관성 : null이 아닌 모든 참조 값 x,y에 대하여 x.equals(y)를 반복해도 호출해도 같은 값이 나온다.
+        // - 두 객체가 같다면 앞으로도 영원히 같아야 한다.
+        // - 가변 클래스는 비교 시점에 따라 다를 수 있지만 불변 클래스는 한번 다르면 끝까지 달라야한다.
+        // - 클래스가 불변이든 가변이든 equals의 판단에 신뢰할 수 없는 자원이 끼어들어서는 안된다.
+        // - equals 항시 메모리에 존재하는 객체만을 사용한 결정적 계산만 수행해야 한다.
+
+        // 시점마다 두 객체는 다를 수 있음, IP가 바뀔 수 있기 때문에
+        URL url1 = new URL("http://google.com");
+        URL url2 = new URL("http://google.com");
 
 
         // 3-5. null이 아님 : null이 아닌 모든 참조값 x에 대하여 x.equals(null)은 false이다.
+        // - 모든 객체가 null과 같지 않아야 한다.
+        // if(0 == null)과 같은 코드는 필요하지 않다. if(!(o instanceof ClassName))으로 묵시적 검사를 진행한다.
 
 
+
+
+        // 4. equals메서드 구현 방법
+
+        // 4-0. equals의 매개변수는 Object로 설정한다.
+        // 4-1. == 연산자를 활용해 입력이 자기자신의 참조인지 확인한다.
+        // 4-2. instanceof 연산자로 입력이 올바를 타입인지 확인한다.
+        // 4-3. 입력을 올바른 형태로 형변환한다.
+        // 4-4. 입력 객체와 자기 자신의 대응하는 '핵심'필드들이 모두 일치하는지 하나씩 검사한다.
+
+        // (+) 필드 비교 방법
+        // - float, double 비교 : Float.compare(float, float), Double.compare(double, double) 사용
+        // (Float.equals, Double.equals는 오토박싱을 사용하기에 성능이 좋지 않음)
+        // - 나머지 기본 타입 : ==로 비교
+        // - 참조 타입 필드 : equals 메서드로 비교
+
+        // (+) null도 정상값으로 취급하는 참조 타입 필드
+        // - 정적 메서드인 Objects.eqauls(Object, Object)를 활용해 NullPointException을 예방하자.
+        System.out.println(Objects.equals(newP2, newP3));
+
+        // (+) 어떤 필드를 먼저 비교하느냐에 따라 성능차이 발생 가능
+        // - 다를 가능성이 더 크거나 비용이 싼 필드를 먼저 비교
+        // (그래야 비용이 비싼 필드는 나중에 비교하게 되고 속도가 향상 됨)
+        // - 동기화용 락 필드와 같이 객체의 논리적 상태와 관련없는 필드는 굳이 비교하지 않는다.
+
+
+
+        // 최종 결론
+        // "equals를 다 구현했다면 세가지만 자문하자! 대칭성, 추이성, 일관성"
+
+        // 주의사항
+        // - equals를 정의할 때는 hashcode도 반드시 같이 정의하자.
+        // - 너무 복잡하게 해결하려 들지 말자.
+        // (예를들어, File 비교시 심볼릭 링크를 비교해 같은 파일을 가리키는지 확인할 필요가 없다.)
+        // - equals의 매개변수로는 무조건 Object로만 설정한다.
+        // - 사실, 자동생성 프로그램에 맡기는것이 실수도 적고 안전하다.
 
 
     }

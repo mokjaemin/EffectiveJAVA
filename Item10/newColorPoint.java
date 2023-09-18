@@ -9,8 +9,6 @@ public class newColorPoint {
         this.color = color;
     }
 
-    // test
-
     public Point asPoint(){
         return this.point;
     }
