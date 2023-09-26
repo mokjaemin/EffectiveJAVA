@@ -1,11 +1,10 @@
-package Item7;
+package Item13;
 
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
-// 스택 구현
-public class Stack {
-    
+public class Stack implements Cloneable{
+
     private Object[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -17,6 +16,10 @@ public class Stack {
     public void push(Object e){
         ensureCapacity();
         elements[size++] = e;
+    }
+
+    public int getSize(){
+        return size;
     }
 
     public Object get(int index){
@@ -45,5 +48,15 @@ public class Stack {
         }
     }
 
-
+    @Override
+    public Stack clone(){
+        try{
+            Stack result = (Stack) super.clone();
+            result.elements = elements.clone();
+            return result;
+        }
+        catch (CloneNotSupportedException e){
+            throw new AssertionError();
+        }
+    }
 }
