@@ -47,7 +47,7 @@ public class Main {
 
 
         // 3. compareTo 작성요령
-        // - implements Comparable<Class> 를 작성시 해당 클래스와만 비교한다고 명시한다.
+
         // - compareTo 메서드에서 관계연산자 <, >를 사용하는 것은 오류를 발생하니 더이상 추천하지 않는다.
         // - 박싱된 기본타입 클래스들에 새로 추가된 정적 메서드인 compare을 이용한다.
         char a = 'a';
@@ -56,6 +56,8 @@ public class Main {
         System.out.println(Integer.compare(1, 2));
         System.out.println("a".compareTo("b"));
 
+
+        // - implements Comparable<Class> 를 작성시 해당 클래스와만 비교한다고 명시한다.
         // - 객체 참조 필드를 비교하려면 compareTo 메서드를 재귀적으로 호출한다.
         // - 핵심필드가 여러개라면 가장 핵심적인 필드부터 순차적으로 비교해간다.
         BasicInfo basicInfo1 = new BasicInfo("a");

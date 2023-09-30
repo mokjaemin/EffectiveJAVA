@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Person2 implements ISingleTon, Serializable{
 
-    private static final Person2 instance = new Person2();
+    private static final Person2 instancePerson = new Person2();
     private static boolean isCreated;
 
     private Person2(){
@@ -17,7 +17,7 @@ public class Person2 implements ISingleTon, Serializable{
     }
 
     public static Person2 getInstance(){
-        return instance;
+        return instancePerson;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class Person2 implements ISingleTon, Serializable{
     }
 
     private Object readResolve(){
-        return instance;
+        return instancePerson;
     }
 }
