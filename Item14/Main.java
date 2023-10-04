@@ -1,11 +1,14 @@
 package Item14;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.TreeSet;
 
 // Item 14 : Comparable을 구현할지 고려하라.
 public class Main {
+
+
     public static void main(String[] args){
 
         // Comparable의 유일무이한 메서드인 compareTo 메서드
@@ -72,5 +75,34 @@ public class Main {
         System.out.println("생성자 사용 : " + info1.compareTo(info2));
 
 
+
+        // 해시코드를 통해 비교를 하는경우
+
+        // 잘못된 예시
+        // hashCodeOrder1 : 정수 오버플로우 (범위 초과)가 발생할 수 있다.
+
+        // 다른 두개의 방식을 대신 사용하자.
+        // hashCodeOrder2
+        // hashCodeOrder3
+
+
+
     }
+
+    public static Comparator<Object> hashCodeOrder1 = new Comparator<Object>() {
+        public int compare(Object o1, Object o2) {
+            return o1.hashCode() - o2.hashCode();
+        }
+    };
+
+    public static Comparator<Object> hashCodeOrder2 = new Comparator<Object>() {
+        public int compare(Object o1, Object o2) {
+            return Integer.compare(o1.hashCode(), o2.hashCode());
+        }
+    };
+
+    public static Comparator<Object> hashCodeOrder3
+            = Comparator.comparingInt(o -> o.hashCode());
+
+
 }
