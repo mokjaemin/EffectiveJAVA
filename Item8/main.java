@@ -4,6 +4,7 @@ package Item8;
 import java.io.FileInputStream;
 import java.util.concurrent.CountDownLatch;
 
+
 // Item8 : finalizer와 cleaner 사용을 피하라
 public class main {
     public static void main(String[] args) throws Exception{

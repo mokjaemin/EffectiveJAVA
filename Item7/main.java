@@ -2,6 +2,7 @@ package Item7;
 
 
 import java.util.*;
+import java.util.Stack;
 
 // Item7 : 다 쓴 객체 참조를 해제하라
 public class main {
@@ -24,24 +25,25 @@ public class main {
         // 메모리 누수 1. 스택이 커졌다가 줄어들때, 스택에서 꺼내진 객체들이 가비지 컬렉터로 가지 않음
         // 스택이 다 쓴 객체들의 참조를 여전히 가지고 있기 때문이다.
 
+
         // 구현된 Stack
-        Stack stack = new Stack();
-        // 삽입
-        for(int i=0; i<10; i++){
-            stack.push(new Object());
-        }
-        for(int i=0; i<10; i++){
-            System.out.println(System.identityHashCode(stack.get(i)));
-        }
-        System.out.println("삭제 후");
-        // 삭제
-        for(int i=0; i<10; i++){
-            stack.pop();
-        }
-        for(int i=0; i<10; i++){
-            System.out.println(System.identityHashCode(stack.get(i)));
-            // System.out.println(stack.get(i));
-        }
+//        Stack stack = new Stack();
+//        // 삽입
+//        for(int i=0; i<10; i++){
+//            stack.push(new Object());
+//        }
+//        for(int i=0; i<10; i++){
+//            System.out.println(System.identityHashCode(stack.get(i)));
+//        }
+//        System.out.println("삭제 후");
+//        // 삭제
+//        for(int i=0; i<10; i++){
+//            stack.pop();
+//        }
+//        for(int i=0; i<10; i++){
+//            System.out.println(System.identityHashCode(stack.get(i)));
+//            // System.out.println(stack.get(i));
+//        }
         // -> 그대로 남아있음
         // 이유 : size 변수를 증가/감소 하면서 실제 삭제가 아닌 가리키는 인덱스를 변경하는 구조이기 때문에
 
@@ -86,6 +88,7 @@ public class main {
         map1.put(key3, "객체 1");
         map1.put(key4, "객체 2");
 
+
         key4 = null;
 
         System.out.println("HashMap 삭제 전 ->");
@@ -96,6 +99,7 @@ public class main {
         System.gc(); // 강제 Garbage Collection
         // 추가적으로 Integer 같은 경우, 특정범위 (약 : 128) 까지는 캐싱처리 되어서
         // 삭제가 안됨.
+        // 또한, 삭제가 될 때가 있고 안될 때가 있음
         
         System.out.println("HashMap 삭제 후 ->");
         for(Integer key : map1.keySet()){
