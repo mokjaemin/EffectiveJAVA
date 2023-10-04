@@ -142,8 +142,6 @@ public class Main {
         System.out.println(newP1.equals(newP2.asPoint()));
 
 
-        // 61p부터 시작
-
         // 3-4. 일관성 : null이 아닌 모든 참조 값 x,y에 대하여 x.equals(y)를 반복해도 호출해도 같은 값이 나온다.
         // - 두 객체가 같다면 앞으로도 영원히 같아야 한다.
         // - 가변 클래스는 비교 시점에 따라 다를 수 있지만 불변 클래스는 한번 다르면 끝까지 달라야한다.

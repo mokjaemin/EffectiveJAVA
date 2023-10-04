@@ -81,6 +81,13 @@ public class Main {
         // 6. 결론
         // -> 복사 생성자(변환 생성자)와 복사 팩터리(변환 팩터리)라는 더 나은 객체 복사 방식을 사용하자.
         // 복사 생성자 : 자신과 같은 클래스의 인스턴스를 인수로 받는 생성자
+        CopyConstructor instance11 = new CopyConstructor(1);
+        CopyConstructor instance12 = new CopyConstructor(instance11);
+        System.out.println(System.identityHashCode(instance11));
+        System.out.println(instance11.getValue());
+        System.out.println(System.identityHashCode(instance12));
+        System.out.println(instance12.getValue());
+
 
 
     }
