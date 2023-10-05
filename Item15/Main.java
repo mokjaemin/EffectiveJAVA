@@ -105,7 +105,10 @@ public class Main {
 
 
 
-
+        // 결론 :
+        // 클래스는 접근성은 최소화, 필요한 것만 public
+        // 필드는 상수용 public static final 이외 public 불가능
+        // public static final 사용시 불변인지 확인
 
 
 
