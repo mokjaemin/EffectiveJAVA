@@ -58,6 +58,8 @@ public class Main {
         // -> 자주 사용하는 인스턴스를 캐싱한 후 정적 팩터리를 이용해 이를 제공하면 메모리 효율성이 커진다.
         // - 2. 불변 객체는 자유롭게 공유 가능하며 불변 객체끼리는 내부 데이터를 공유할 수 있다.
         // -> 예시 : BigInteger의 negate 메서드는 값을 원본과 공유한다.
+        BigInteger test10 = new BigInteger("10000");
+        BigInteger test11 = test10.negate();
         // - 3. 객체를 만들 때, 다른 불변 객체들을 구성요소로 사용하면 이점이 많다.
         // -> 예시로 불변 객체는 Map, Set의 원소로 사용하기 좋다.
         // - 4. 불변 객체는 그 자체로 실패 원자성을 제공한다.
@@ -67,7 +69,8 @@ public class Main {
         // - 값이 다르면 반드시 독립된 객체로 만들어야 한다.
         // - 예를들어, 비트가 엄청 큰 BigDecimal 에서 하나의 비트를 변경하려 해도 새로 생성해야 함.
         // - 해결책은 다단계 연산을 예측하여 기본 기능으로 제공, 가변 동반 클래스 제공
-        // - 가변 동반 클래스의 예시로는 String-StringBuilder, StringBuffer 가 있다.
+        // - 가변 동반 클래스의 예시로는 (String-StringBuilder, StringBuffer),
+        // (BigInteger-BitSet) 가 있다.
 
 
         // 7. 불변 클래스를 만드는 다른 방법
