@@ -15,5 +15,6 @@ public class Main {
         // 결론 : public 클래스는 절대 가변 필드 노출 x, 불변 필드라면 노출을 생각해볼 수 있지만 안전하진 않다.
         // package-private이나 private 중첩 클래스는 노출하는게 나을 때도 있다.
 
+
     }
 }

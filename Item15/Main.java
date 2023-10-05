@@ -98,7 +98,7 @@ public class Main {
         // - 1. private로 변경 후 해당 멤버를 불변, public으로 변경한 멤버 새로 생성
         // - 예시 : public static final List<Thing> VALUES
         // = Collections.unmodifiableList(Arrays.asList(ORIGINAL_VALUES));
-        // - 2. private로 만들고 이 멤버를 복사해서 반환해주는 메서드 생성
+        // - 2. private로 만들고 이 멤버를 복사해서 반환해주는 메서드 생성 (->방어적 복사)
 
         // 3. 모듈에서 공개하지 않기로 한 패키지는 공개되지 않는다.
         // (해당 모듈의 JAR 파일을 애플리케이션의 classpath에 넣지 않는 한)
