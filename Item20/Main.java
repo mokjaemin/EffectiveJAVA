@@ -3,9 +3,15 @@ package Item20;
 
 import java.util.*;
 
+
 // Item 20 : 추상 클래스보다는 인터페이스를 우선시 하라.
 public class Main {
     public static void main(String[] args){
+
+
+        // 이 파트는 블로그 보는게 나음 잘 정리함
+
+
 
         // 자바가 제공하는 다중 구현 매커니즘 : 추상 클래스, 인터페이스
         // - 인터페이스가 디폴트 메서드를 기질 수 있기 때문에 두 매커니즘 다 인스턴스 메서드를 구현 형태로 제공가능
@@ -65,6 +71,19 @@ public class Main {
         // 1. 기반 메서드 : getKey, getValue -> 확실히 필요하므로 기반 메서드로 설정
         // 2. 추가 메서드 : setValue -> 선택적으로 포함할 수 있다, 골격 구현 클래스에 작성
         // 3. Object의 메서드 : toString 등 -> 골격 구현 클래스에 작성
+
+
+        AbstractList<Integer> test1 = new AbstractList<Integer>() {
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @Override
+            public Integer get(int index) {
+                return null;
+            }
+        };
 
 
 

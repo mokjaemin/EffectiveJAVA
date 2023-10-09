@@ -2,7 +2,7 @@ package Item20;
 
 import java.util.Objects;
 
-public abstract class AbstractPerson implements Person{
+public abstract class AbstractPerson{
 
     private int age;
     private String name;
@@ -10,30 +10,30 @@ public abstract class AbstractPerson implements Person{
     private int weight;
 
     // 인터페이스의 메서드
-    @Override
-    public void listen() {
-        System.out.println("listening");
-    }
-
-    @Override
-    public void see() {
-        System.out.println("seeing");
-    }
-
-    @Override
-    public void smell() {
-        System.out.println("smelling");
-    }
-
-    @Override
-    public void taste() {
-        System.out.println("tasting");
-    }
-
-    @Override
-    public void touch() {
-        System.out.println("touching");
-    }
+//    @Override
+//    public void listen() {
+//        System.out.println("listening");
+//    }
+//
+//    @Override
+//    public void see() {
+//        System.out.println("seeing");
+//    }
+//
+//    @Override
+//    public void smell() {
+//        System.out.println("smelling");
+//    }
+//
+//    @Override
+//    public void taste() {
+//        System.out.println("tasting");
+//    }
+//
+//    @Override
+//    public void touch() {
+//        System.out.println("touching");
+//    }
 
     // Object의 메서드
     @Override
