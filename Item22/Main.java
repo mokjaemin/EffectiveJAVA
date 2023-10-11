@@ -29,6 +29,5 @@ public class Main {
         // (해당 클래스의 상수를 자주 사용한다면 import static 으로 클래스명 생략 가능하다.)
 
 
-
     }
 }
