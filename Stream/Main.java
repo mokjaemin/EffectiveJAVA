@@ -52,5 +52,6 @@ public class Main {
         Map<Integer, List<String>> result = array2.stream().collect(Collectors.groupingBy(String::length));
         array2.stream().allMatch(arr -> arr.length() >= 2);
 
+
     }
 }
