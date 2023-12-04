@@ -57,5 +57,9 @@ public class ThreadTest {
         // 결과 출력
         System.out.println("Final set size: " + sharedSet.size());
         System.out.println("Contents of the set: " + sharedSet);
+
+        Box<String> box = new Box<>();
+        box.add("hello");
+        box.print();
     }
 }
