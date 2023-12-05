@@ -6,6 +6,7 @@ import java.util.concurrent.Executors;
 
 public class Client {
     public static void main(String[] args){
+
         MemberController controller = new MemberController();
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
