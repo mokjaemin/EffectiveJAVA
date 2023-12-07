@@ -24,8 +24,7 @@ public class Client {
         executorService.shutdown();
         while (!executorService.isTerminated()) {
             // 기다리는 동안 다른 작업 수행
-        }
-
+        
 
         for(Object m : controller.getMember()){
             System.out.print(m);
